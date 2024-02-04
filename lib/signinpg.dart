@@ -30,10 +30,20 @@ class _MysigninState extends State<Mysignin> {
             child: Container(
                 height: 60,
                 child: Stack(children: [
-                  Positioned(child: Image.asset('assets/images/img_35.png',)),
-                  Positioned(top:0,left: 30,
+                  Positioned(
+                      child: Image.asset(
+                    'assets/images/img_35.png',
+                  )),
+                  Positioned(
+                      top: 0,
+                      left: 30,
                       child: TextButton(
-                        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>Mythirdpage()));},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Mythirdpage()));
+                        },
                         child: Text(
                           'Sign in',
                           style: TextStyle(
@@ -46,7 +56,13 @@ class _MysigninState extends State<Mysignin> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 25),
-            child: Text('OR',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 27,fontFamily: 'Sanchez'),),
+            child: Text(
+              'OR',
+              style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 27,
+                  fontFamily: 'Sanchez'),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 25),
@@ -54,9 +70,16 @@ class _MysigninState extends State<Mysignin> {
                 height: 60,
                 child: Stack(children: [
                   Positioned(child: Image.asset('assets/images/img_35.png')),
-                  Positioned(top:0,left: 30,
+                  Positioned(
+                      top: 0,
+                      left: 30,
                       child: TextButton(
-                        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>Myfourthpage()));},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Myfourthpage()));
+                        },
                         child: Text(
                           'Sign up',
                           style: TextStyle(
