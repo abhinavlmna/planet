@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:plantnet2/Mybuttons.dart';
 import 'package:plantnet2/paymentpg.dart';
 import 'package:plantnet2/pickplants.dart';
+import 'package:plantnet2/screensize.dart';
 import 'package:plantnet2/signinpg.dart';
 import 'package:plantnet2/splashhhhhh.dart';
 import 'package:plantnet2/thirdpage.dart';
@@ -22,10 +23,13 @@ class Myapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Splashscreen(),
-    );
+    return Sizer(builder:
+        (BuildContext context, Orientation orientation, DeviceType deviceType) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Splashscreen(),
+      );
+    });
   }
 }
 
@@ -45,8 +49,8 @@ class _HomeState extends State<Home> {
           padding: const EdgeInsets.only(left: 65, top: 50),
           child: Image.asset(
             'assets/images/img_1.png',
-            height: 394,
-            width: 350,
+            height: 394.v,
+            width: 350.h,
             fit: BoxFit.cover,
           ),
         ),

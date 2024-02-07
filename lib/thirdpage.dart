@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantnet2/fourthpage.dart';
+import 'package:plantnet2/screensize.dart';
 
 class Mythirdpage extends StatefulWidget {
   const Mythirdpage({super.key});
@@ -17,8 +18,7 @@ class _MythirdpageState extends State<Mythirdpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
+      body: SingleChildScrollView(
         child: Column(
           key: _formKey,
           children: [
@@ -26,8 +26,8 @@ class _MythirdpageState extends State<Mythirdpage> {
               padding: const EdgeInsets.only(top: 10, left: 40),
               child: Image.asset(
                 'assets/images/img_2.png',
-                height: 350,
-                width: 350,
+                height: 350.v,
+                width: 350.h,
                 fit: BoxFit.cover,
               ),
             ),
@@ -63,10 +63,8 @@ class _MythirdpageState extends State<Mythirdpage> {
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "Please Enter a Phone Number";
-                  } else if (!RegExp(
-                          r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
-                      .hasMatch(value)) {
-                    return "Please Enter a Valid Phone Number";
+                  } else if (value.length < 10) {
+                    return "Phone number must has 10 digits";
                   }
                 },
                 controller: _phno,
@@ -80,7 +78,7 @@ class _MythirdpageState extends State<Mythirdpage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left: 37, right: 185),
               child: Text(
                 'Enter your password',
                 style: TextStyle(
@@ -94,11 +92,25 @@ class _MythirdpageState extends State<Mythirdpage> {
               padding: const EdgeInsets.only(left: 30, right: 30),
               child: TextFormField(
                 validator: (String? value) {
-                  if (value!.contains('#')) {
-                    return 'Wrong password';
-                  } else {
-                    return null;
+                  if (value == null || value.isEmpty) {
+                    return "Invalid password!";
                   }
+                  if (value.length < 4) {
+                    return "Password must has 4 characters";
+                  }
+                  if (!value.contains(RegExp(r'[A-Z]'))) {
+                    return "Password must has uppercase";
+                  }
+                  if (!value.contains(RegExp(r'[0-9]'))) {
+                    return "Password must has digits";
+                  }
+                  if (!value.contains(RegExp(r'[a-z]'))) {
+                    return "Password must has lowercase";
+                  }
+                  if (!value.contains(RegExp(r'[#?!@$%^&*-]'))) {
+                    return "Password must has special characters";
+                  } else
+                    return null;
                 },
                 controller: _password,
                 decoration: InputDecoration(
@@ -125,7 +137,7 @@ class _MythirdpageState extends State<Mythirdpage> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Container(
-                  height: 60,
+                  height: 60.v,
                   child: Stack(children: [
                     Positioned(child: Image.asset('assets/images/img_35.png')),
                     Positioned(
