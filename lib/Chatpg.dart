@@ -10,8 +10,6 @@ class Chatpage extends StatefulWidget {
 class _ChatpageState extends State<Chatpage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-    );
+    return Scaffold();
   }
 }
