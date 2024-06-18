@@ -28,6 +28,10 @@ class Myapp extends StatelessWidget {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Splashscreen(),
+        theme: ThemeData(
+            scaffoldBackgroundColor: Color.fromARGB(255, 238, 212, 212),
+            appBarTheme: AppBarTheme(
+                backgroundColor: Color.fromARGB(255, 241, 232, 232))),
       );
     });
   }
@@ -43,30 +47,32 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 65, top: 50),
-          child: Image.asset(
-            'assets/images/img_1.png',
-            height: 394.v,
-            width: 350.h,
-            fit: BoxFit.cover,
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 65, top: 50),
+            child: Image.asset(
+              'assets/images/img_1.png',
+              height: 394.v,
+              width: 350.h,
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        TextButton(
-          onPressed: () {
-            print('Sign In');
-          },
-          child: Text('Sign In'),
-          style: TextButton.styleFrom(textStyle: TextStyle()),
-        ),
-        TextButton(
+          TextButton(
             onPressed: () {
-              print('Sign Up');
+              print('Sign In');
             },
-            child: Text('Sign Up')),
-      ],
+            child: Text('Sign In'),
+            style: TextButton.styleFrom(textStyle: TextStyle()),
+          ),
+          TextButton(
+              onPressed: () {
+                print('Sign Up');
+              },
+              child: Text('Sign Up')),
+        ],
+      ),
     ));
   }
 }

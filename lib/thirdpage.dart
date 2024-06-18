@@ -23,9 +23,9 @@ class _MythirdpageState extends State<Mythirdpage> {
           key: _formKey,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 10, left: 40),
+              padding: const EdgeInsets.only(top: 10, left: 10),
               child: Image.asset(
-                'assets/images/img_2.png',
+                'assets/images/img_2nw.png',
                 height: 350.v,
                 width: 350.h,
                 fit: BoxFit.cover,

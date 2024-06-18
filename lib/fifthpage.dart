@@ -101,9 +101,10 @@ class _MyfifthpageState extends State<Myfifthpage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 40, left: 40),
               child: Container(
                   height: 60.v,
+                  width: 160.h,
                   child: Stack(children: [
                     Positioned(
                         child: Image.asset(
@@ -122,7 +123,7 @@ class _MyfifthpageState extends State<Myfifthpage> {
                                     builder: (context) => Myupdate()));
                           },
                           child: Text(
-                            'Sign up',
+                            'Submit',
                             style: TextStyle(
                                 fontSize: 30,
                                 fontFamily: 'Sanchez',
