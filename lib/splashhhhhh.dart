@@ -15,6 +15,7 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 238, 212, 212),
         // body: EasySplashScreen(
         //   logo: Image.asset('assets/images/img')
         //   title: Text(
@@ -33,24 +34,26 @@ class _SplashscreenState extends State<Splashscreen> {
         // );
 
         body: AnimatedSplashScreen.withScreenFunction(
-      splash: Container(
-        height: 600,
-        child: Stack(
-          children: [
-            Positioned(
-                child: Image.asset(
-              'assets/images/img_38.png',
-              height: 101,
-              width: 291,
-              fit: BoxFit.fill,
-            )),
-          ],
-        ),
-      ),
-      screenFunction: () async {
-        return Mysignin();
-      },
-      splashTransition: SplashTransition.rotationTransition,
-    ));
+          backgroundColor: Color.fromARGB(255, 238, 212, 212),
+          splash: Container(
+            // color: Color.fromARGB(255, 238, 212, 212),
+            height: 600,
+            child: Stack(
+              children: [
+                Positioned(
+                    child: Image.asset(
+                  'assets/images/img_38.png',
+                  height: 101,
+                  width: 291,
+                  fit: BoxFit.fill,
+                )),
+              ],
+            ),
+          ),
+          screenFunction: () async {
+            return Mysignin();
+          },
+          splashTransition: SplashTransition.rotationTransition,
+        ));
   }
 }

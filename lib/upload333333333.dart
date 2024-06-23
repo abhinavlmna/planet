@@ -49,65 +49,65 @@ class _Upload3State extends State<Upload3> {
                     fontWeight: FontWeight.w400),
               )),
             ),
-            Container(
-              height: 310.v,
-              child: Stack(children: [
-                Positioned(
-                    left: 30.h,
-                    child: Image.asset(
-                      'assets/images/img_21.png',
-                      height: 300.v,
-                      width: 300.h,
-                      fit: BoxFit.fill,
-                    )),
-                Positioned(
-                    top: 40.v,
-                    left: 189.h,
-                    child: Image.asset(
-                      'assets/images/img_22.png',
-                      height: 39.v,
-                      width: 39.h,
-                      fit: BoxFit.fill,
-                    )),
-                Positioned(
-                    top: 100.v,
-                    left: 176.h,
-                    child: Text(
-                      'Upload\ndetails\nabout\nyour\nplants',
-                      style: TextStyle(
-                          fontFamily: 'Sanchez',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 24),
-                    )),
-                Positioned(
-                    top: 170.v,
-                    left: 60.h,
-                    child: Image.asset(
-                      'assets/images/img_23.png',
-                      height: 35.v,
-                      width: 44.h,
-                      fit: BoxFit.fill,
-                    )),
-                Positioned(
-                    top: 250.v,
-                    left: 189.h,
-                    child: Image.asset(
-                      'assets/images/img_24.png',
-                      height: 44.v,
-                      width: 33.h,
-                      fit: BoxFit.fill,
-                    )),
-                Positioned(
-                    top: 170.v,
-                    right: 60.h,
-                    child: Image.asset(
-                      'assets/images/img_25.png',
-                      height: 35.v,
-                      width: 35.h,
-                      fit: BoxFit.fill,
-                    )),
-              ]),
-            ),
+            // Container(
+            //   height: 310.v,
+            //   child: Stack(children: [
+            //     Positioned(
+            //         left: 30.h,
+            //         child: Image.asset(
+            //           'assets/images/img_21.png',
+            //           height: 300.v,
+            //           width: 300.h,
+            //           fit: BoxFit.fill,
+            //         )),
+            //     Positioned(
+            //         top: 40.v,
+            //         left: 189.h,
+            //         child: Image.asset(
+            //           'assets/images/img_22.png',
+            //           height: 39.v,
+            //           width: 39.h,
+            //           fit: BoxFit.fill,
+            //         )),
+            //     Positioned(
+            //         top: 100.v,
+            //         left: 176.h,
+            //         child: Text(
+            //           'Upload\ndetails\nabout\nyour\nplants',
+            //           style: TextStyle(
+            //               fontFamily: 'Sanchez',
+            //               fontWeight: FontWeight.w400,
+            //               fontSize: 24),
+            //         )),
+            //     Positioned(
+            //         top: 170.v,
+            //         left: 60.h,
+            //         child: Image.asset(
+            //           'assets/images/img_23.png',
+            //           height: 35.v,
+            //           width: 44.h,
+            //           fit: BoxFit.fill,
+            //         )),
+            //     Positioned(
+            //         top: 250.v,
+            //         left: 189.h,
+            //         child: Image.asset(
+            //           'assets/images/img_24.png',
+            //           height: 44.v,
+            //           width: 33.h,
+            //           fit: BoxFit.fill,
+            //         )),
+            //     Positioned(
+            //         top: 170.v,
+            //         right: 60.h,
+            //         child: Image.asset(
+            //           'assets/images/img_25.png',
+            //           height: 35.v,
+            //           width: 35.h,
+            //           fit: BoxFit.fill,
+            //         )),
+            //   ]),
+            // ),
             Padding(
               padding: EdgeInsets.only(right: 50.h, bottom: 70.v),
               child: Align(
@@ -126,6 +126,19 @@ class _Upload3State extends State<Upload3> {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Uploading extends StatelessWidget {
+  const Uploading({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Stack(
+        children: [Positioned(child: Image.asset('assets/images/img_21.png'))],
       ),
     );
   }

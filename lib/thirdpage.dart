@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantnet2/feedpage.dart';
 import 'package:plantnet2/fourthpage.dart';
 import 'package:plantnet2/screensize.dart';
 
@@ -144,7 +145,12 @@ class _MythirdpageState extends State<Mythirdpage> {
                         top: 0,
                         left: 30,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Feedpage()));
+                          },
                           child: Text(
                             'Submit',
                             style: TextStyle(

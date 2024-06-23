@@ -35,6 +35,8 @@ dependencies:
   animated_splash_screen: ^1.3.0
   gradient_textfield: ^0.0.1
   easy_splash_screen:
+  image_picker: ^0.8.4+4
+  file_picker: ^5.0.1
 
 
 

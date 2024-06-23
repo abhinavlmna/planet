@@ -1,6 +1,12 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:plantnet2/moreupload.dart';
+import 'package:plantnet2/readyupload.dart';
 import 'package:plantnet2/screensize.dart';
+import 'package:plantnet2/upload333333333.dart';
 
 class Upload extends StatefulWidget {
   const Upload({super.key});
@@ -35,75 +41,13 @@ class _UploadState extends State<Upload> {
                     fontFamily: 'Sanchez'),
               ),
             ),
-            Container(
-              height: 360.v,
-              width: 340.h,
-              child: Stack(children: [
-                Positioned(
-                    top: 20.v,
-                    left: 10.h,
-                    child: Image.asset(
-                      'assets/images/img_21.png',
-                      height: 320.v,
-                      width: 320.h,
-                      fit: BoxFit.fill,
-                    )),
-                Positioned(
-                    top: 70.v,
-                    left: 189.h,
-                    child: Image.asset(
-                      'assets/images/img_22.png',
-                      height: 39.v,
-                      width: 39.h,
-                      fit: BoxFit.fill,
-                    )),
-                Positioned(
-                    top: 130.v,
-                    left: 176.h,
-                    child: Text(
-                      'Upload\ndetails\nabout\nyour\nplants',
-                      style: TextStyle(
-                          fontFamily: 'Sanchez',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 24),
-                    )),
-                Positioned(
-                    top: 170.v,
-                    left: 60.h,
-                    child: Image.asset(
-                      'assets/images/img_23.png',
-                      height: 35.v,
-                      width: 44.h,
-                      fit: BoxFit.fill,
-                    )),
-                Positioned(
-                    top: 270.v,
-                    left: 189.h,
-                    child: Image.asset(
-                      'assets/images/img_24.png',
-                      height: 44.v,
-                      width: 33.h,
-                      fit: BoxFit.fill,
-                    )),
-                Positioned(
-                    top: 170.v,
-                    right: 60.h,
-                    child: Image.asset(
-                      'assets/images/img_25.png',
-                      height: 35.v,
-                      width: 35.h,
-                      fit: BoxFit.fill,
-                    )),
-              ]),
-            ),
+            Uploading(),
             Padding(
               padding: EdgeInsets.only(bottom: 60.v, right: 5.h, left: 270.h),
               child: IconButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Moreuploadpg()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Readyupload()));
                   },
                   icon: Icon(
                     Icons.arrow_forward_ios_outlined,
@@ -112,6 +56,180 @@ class _UploadState extends State<Upload> {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Uploading extends StatefulWidget {
+  const Uploading({super.key});
+
+  @override
+  State<Uploading> createState() => _UploadingState();
+}
+
+class _UploadingState extends State<Uploading> {
+  String? _videoName;
+  String? _imageName;
+  String? _audioName;
+  Future<void> _pickAudio() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.audio,
+    );
+
+    if (result != null) {
+      File file = File(result.files.single.path!);
+      setState(() {
+        _audioName = file.uri.pathSegments.last;
+      });
+    }
+  }
+
+  Future<void> _pickVideo() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? video = await _picker.pickVideo(source: ImageSource.gallery);
+
+    if (video != null) {
+      setState(() {
+        _videoName = File(video.path).uri.pathSegments.last;
+      });
+    }
+  }
+
+  Future<void> _pickImage() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+    if (image != null) {
+      setState(() {
+        _imageName = File(image.path).uri.pathSegments.last;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 350.v,
+      width: 350.h,
+      child: Stack(
+        children: [
+          Positioned(
+              left: 5.h,
+              child: Image.asset(
+                'assets/images/img_21.png',
+                height: 350.v,
+                width: 350.h,
+                fit: BoxFit.fill,
+              )),
+          Positioned(
+              top: 70.v,
+              left: 50.h,
+              child: Image.asset(
+                'assets/images/img_25.png',
+                height: 35.v,
+                width: 35.h,
+                fit: BoxFit.fill,
+              )),
+          Positioned(
+              top: 70.v,
+              left: 135.h,
+              child: SizedBox(
+                height: 30,
+                width: 180,
+                child: TextField(
+                  decoration: InputDecoration(
+                      labelText: 'Write details of your plants'),
+                ),
+              )),
+          Positioned(
+              top: 145,
+              left: 50,
+              child: Image.asset(
+                'assets/images/img_22.png',
+                height: 39.v,
+                width: 39.h,
+                fit: BoxFit.fill,
+              )),
+          Positioned(
+            top: 145,
+            left: 150,
+            child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll<Color>(
+                        Color.fromARGB(211, 193, 219, 169))),
+                onPressed: () {
+                  _pickImage();
+                },
+                child: _imageName == null
+                    ? Image.asset(
+                        'assets/images/cloudnw.png',
+                        height: 30.v,
+                        width: 30.h,
+                        fit: BoxFit.fill,
+                      )
+                    : Text(
+                        _imageName!,
+                      )),
+          ),
+          Positioned(
+              top: 195.v,
+              left: 50.h,
+              child: Image.asset(
+                'assets/images/img_23.png',
+                height: 35.v,
+                width: 44.h,
+                fit: BoxFit.fill,
+              )),
+          Positioned(
+              top: 195.v,
+              left: 130.h,
+              child: ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll<Color>(
+                          Color.fromARGB(211, 193, 219, 169))),
+                  onPressed: () {
+                    _pickAudio();
+                  },
+                  child: _videoName == null
+                      ? Image.asset(
+                          'assets/images/cloudnw.png',
+                          height: 30.v,
+                          width: 30.h,
+                          fit: BoxFit.fill,
+                        )
+                      : Text(_videoName!))),
+          Positioned(
+              top: 260.v,
+              left: 50.h,
+              child: Image.asset(
+                'assets/images/img_24.png',
+                height: 44.v,
+                width: 33.h,
+                fit: BoxFit.fill,
+              )),
+          Positioned(
+            top: 260.v,
+            left: 130.h,
+            child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll<Color>(
+                        Color.fromARGB(211, 193, 219, 169))),
+                onPressed: () {
+                  _pickAudio();
+                },
+                child: _audioName == null
+                    ? Image.asset(
+                        'assets/images/cloudnw.png',
+                        height: 30.v,
+                        width: 30.h,
+                        fit: BoxFit.fill,
+                      )
+                    : Text(
+                        _audioName!,
+                      )),
+          )
+        ],
       ),
     );
   }

@@ -117,9 +117,9 @@ class _WishlistState extends State<Wishlist> {
                                 ),
                               ),
                               Positioned(
-                                  left: 320.h,
+                                  left: 300.h,
                                   child: Image.asset(
-                                    'assets/images/img_52.png',
+                                    'assets/images/img_52nw.png',
                                     height: 28.v,
                                     width: 30.h,
                                     fit: BoxFit.fill,
@@ -148,7 +148,7 @@ class _WishlistState extends State<Wishlist> {
                                   top: 70.v,
                                   left: 210.h,
                                   child: Image.asset(
-                                    'assets/images/img_51.png',
+                                    'assets/images/img_51nw.png',
                                     height: 26.v,
                                     width: 21.h,
                                     fit: BoxFit.fill,
@@ -203,7 +203,7 @@ class _WishlistState extends State<Wishlist> {
                                   top: 180.v,
                                   left: 30.h,
                                   child: Image.asset(
-                                    'assets/images/img_40.png',
+                                    'assets/images/img_40nw.png',
                                     height: 24.v,
                                     width: 30.h,
                                     fit: BoxFit.fill,
@@ -212,7 +212,7 @@ class _WishlistState extends State<Wishlist> {
                                   top: 180.v,
                                   left: 100.h,
                                   child: Image.asset(
-                                    'assets/images/img_41.png',
+                                    'assets/images/img_41nw.png',
                                     height: 24.v,
                                     width: 30.h,
                                     fit: BoxFit.fill,

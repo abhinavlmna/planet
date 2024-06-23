@@ -118,8 +118,8 @@ class _CartpageState extends State<Cartpage> {
                           child: Stack(
                             children: [
                               Positioned(
-                                top: 10,
-                                left: 10,
+                                top: 10.v,
+                                left: 10.h,
                                 child: Image.asset(
                                   '${C.image}',
                                   height: 109.v,
@@ -128,16 +128,16 @@ class _CartpageState extends State<Cartpage> {
                                 ),
                               ),
                               Positioned(
-                                  left: 320,
+                                  left: 290.h,
                                   child: Image.asset(
-                                    'assets/images/img_52.png',
+                                    'assets/images/img_52nw.png',
                                     height: 28..v,
                                     width: 30.h,
                                     fit: BoxFit.fill,
                                   )),
                               Positioned(
-                                  top: 10,
-                                  left: 210,
+                                  top: 10.v,
+                                  left: 210.h,
                                   child: Text(
                                     '${C.name}',
                                     style: TextStyle(
@@ -146,8 +146,8 @@ class _CartpageState extends State<Cartpage> {
                                         fontWeight: FontWeight.w600),
                                   )),
                               Positioned(
-                                  top: 40,
-                                  left: 230,
+                                  top: 40.v,
+                                  left: 230.h,
                                   child: Text(
                                     '${C.price}',
                                     style: TextStyle(
@@ -156,17 +156,17 @@ class _CartpageState extends State<Cartpage> {
                                         fontWeight: FontWeight.w600),
                                   )),
                               Positioned(
-                                  top: 70,
-                                  left: 210,
+                                  top: 70.v,
+                                  left: 210.h,
                                   child: Image.asset(
-                                    'assets/images/img_51.png',
+                                    'assets/images/img_51nw.png',
                                     height: 26.v,
                                     width: 21.h,
                                     fit: BoxFit.fill,
                                   )),
                               Positioned(
-                                  top: 70,
-                                  left: 240,
+                                  top: 70.v,
+                                  left: 240.h,
                                   child: Text(
                                     '${C.place}',
                                     style: TextStyle(
@@ -175,8 +175,8 @@ class _CartpageState extends State<Cartpage> {
                                         fontSize: 20),
                                   )),
                               Positioned(
-                                  top: 130,
-                                  left: 60,
+                                  top: 130.v,
+                                  left: 60.h,
                                   child: Text(
                                     'Qty',
                                     style: TextStyle(
@@ -185,8 +185,8 @@ class _CartpageState extends State<Cartpage> {
                                         fontFamily: 'Sanchez'),
                                   )),
                               Positioned(
-                                  top: 130,
-                                  left: 120,
+                                  top: 130.v,
+                                  left: 120.h,
                                   child: Text(
                                     '${C.quantity}',
                                     style: TextStyle(
@@ -195,26 +195,26 @@ class _CartpageState extends State<Cartpage> {
                                         fontWeight: FontWeight.w100),
                                   )),
                               Positioned(
-                                  top: 180,
-                                  left: 30,
+                                  top: 180.v,
+                                  left: 30.h,
                                   child: Image.asset(
-                                    'assets/images/img_40.png',
+                                    'assets/images/img_40nw.png',
                                     height: 24.v,
                                     width: 30.h,
                                     fit: BoxFit.fill,
                                   )),
                               Positioned(
-                                  top: 180,
-                                  left: 100,
+                                  top: 180.v,
+                                  left: 100.h,
                                   child: Image.asset(
-                                    'assets/images/img_41.png',
+                                    'assets/images/img_41nw.png',
                                     height: 24.v,
                                     width: 30.h,
                                     fit: BoxFit.fill,
                                   )),
                               Positioned(
-                                  top: 165,
-                                  left: 160,
+                                  top: 165.v,
+                                  left: 160.h,
                                   child: IconButton(
                                     onPressed: () {},
                                     icon: Icon(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:plantnet2/feedpage.dart';
 import 'package:plantnet2/plantimgpg.dart';
 import 'package:plantnet2/screensize.dart';
 import 'package:plantnet2/upload333333333.dart';
+import 'package:plantnet2/uploadpg.dart';
 
 class Readyupload extends StatefulWidget {
   const Readyupload({super.key});
@@ -23,13 +25,13 @@ class _ReadyuploadState extends State<Readyupload> {
                 alignment: Alignment.bottomCenter,
                 child: Container(
                   height: 630.v,
-                  width: 620.h,
+                  width: 600.h,
                   child: Stack(children: [
                     Positioned(
                         child: Image.asset(
                       'assets/images/img_31.png',
                       height: 630.v,
-                      width: 620.h,
+                      width: 600.h,
                       fit: BoxFit.fill,
                     )),
                     Positioned(
@@ -68,7 +70,7 @@ class _ReadyuploadState extends State<Readyupload> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Plantimage()));
+                                    builder: (context) => Feedpage()));
                           },
                           child: Text(
                             'OK',
@@ -87,7 +89,7 @@ class _ReadyuploadState extends State<Readyupload> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Upload3()));
+                                    builder: (context) => Upload()));
                           },
                           child: Text(
                             'Cancel',
