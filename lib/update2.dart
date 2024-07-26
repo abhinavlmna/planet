@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plantnet2/eightpage.dart';
 import 'package:plantnet2/screensize.dart';
+import 'package:plantnet2/update3.dart';
 import 'package:plantnet2/uploadpg.dart';
 
 class Myscndupdate extends StatefulWidget {
@@ -17,31 +18,30 @@ class _MyscndupdateState extends State<Myscndupdate> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-      child: Column(children: [
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         Padding(
-          padding: const EdgeInsets.only(top: 30),
-          child: Align(
-              alignment: Alignment.topRight,
-              child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.location_on_outlined,
-                    size: 70,
-                  ))),
-        ),
-        Image.asset(
-          'assets/images/img_19.png',
-          height: 293.v,
-          width: 341.h,
-          fit: BoxFit.cover,
+          padding: EdgeInsets.only(top: 30),
+          child: Image.asset(
+            'assets/images/img_19.png',
+            height: 293.v,
+            width: 341.h,
+            fit: BoxFit.cover,
+          ),
         ),
         Text(
-          'Update Profile',
+          'Update Store Details',
           style: TextStyle(
-              fontSize: 55, fontFamily: 'Sanchez', fontWeight: FontWeight.w400),
+            fontSize: 45,
+            fontFamily: 'Sanchez',
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        SizedBox(
+          height: 20,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 40),
+          padding: const EdgeInsets.only(left: 30),
           child: Align(
               alignment: Alignment.topLeft,
               child: Text(
@@ -86,19 +86,35 @@ class _MyscndupdateState extends State<Myscndupdate> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 30, right: 20),
-          child: Align(
-              alignment: Alignment.bottomRight,
-              child: IconButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Upload()));
-                  },
-                  icon: Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    size: 30,
-                  ))),
-        )
+          padding: EdgeInsets.only(top: 40),
+          child: Container(
+              height: 60.v,
+              width: 160.h,
+              child: Stack(children: [
+                Positioned(
+                    child: Image.asset(
+                  'assets/images/img_35.png',
+                )),
+                Positioned(
+                    top: 0.v,
+                    left: 33.h,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Updateprofile3()));
+                      },
+                      child: Text(
+                        'Save',
+                        style: TextStyle(
+                            fontSize: 35,
+                            fontFamily: 'Sanchez',
+                            color: Colors.black),
+                      ),
+                    )),
+              ])),
+        ),
       ]),
     ));
   }

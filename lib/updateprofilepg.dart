@@ -29,7 +29,7 @@ class _MyupdateState extends State<Myupdate> {
                       ))),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 10),
+              padding: EdgeInsets.only(bottom: 30),
               child: Image.asset(
                 'assets/images/img_18nw.png',
                 height: 318.v,
@@ -37,19 +37,26 @@ class _MyupdateState extends State<Myupdate> {
                 fit: BoxFit.cover,
               ),
             ),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 30),
-                child: Text(
-                  'Full name',
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontFamily: 'Sanchez',
-                      fontWeight: FontWeight.w400),
-                ),
-              ),
+            Image.asset(
+              'assets/images/updateprofile.png',
+              width: 390,
             ),
+            SizedBox(
+              height: 20,
+            ),
+            // Align(
+            //   alignment: Alignment.topLeft,
+            //   child: Padding(
+            //     padding: const EdgeInsets.only(left: 30),
+            //     child: Text(
+            //       'Full name',
+            //       style: TextStyle(
+            //           fontSize: 24,
+            //           fontFamily: 'Sanchez',
+            //           fontWeight: FontWeight.w400),
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: TextField(
@@ -60,18 +67,21 @@ class _MyupdateState extends State<Myupdate> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30, top: 10),
-              child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Address',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Sanchez',
-                        fontSize: 24),
-                  )),
+            SizedBox(
+              height: 30,
             ),
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 30, top: 10),
+            //   child: Align(
+            //       alignment: Alignment.topLeft,
+            //       child: Text(
+            //         'Address',
+            //         style: TextStyle(
+            //             fontWeight: FontWeight.w400,
+            //             fontFamily: 'Sanchez',
+            //             fontSize: 24),
+            //       )),
+            // ),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: TextField(

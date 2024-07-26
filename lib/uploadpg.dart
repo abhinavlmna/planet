@@ -7,6 +7,7 @@ import 'package:plantnet2/moreupload.dart';
 import 'package:plantnet2/readyupload.dart';
 import 'package:plantnet2/screensize.dart';
 import 'package:plantnet2/upload333333333.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class Upload extends StatefulWidget {
   const Upload({super.key});
@@ -72,6 +73,7 @@ class _UploadingState extends State<Uploading> {
   String? _videoName;
   String? _imageName;
   String? _audioName;
+
   Future<void> _pickAudio() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.audio,
@@ -86,24 +88,36 @@ class _UploadingState extends State<Uploading> {
   }
 
   Future<void> _pickVideo() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? video = await _picker.pickVideo(source: ImageSource.gallery);
+    final status = await Permission.storage.request();
+    if (status.isGranted) {
+      final ImagePicker _picker = ImagePicker();
+      final XFile? video = await _picker.pickVideo(source: ImageSource.gallery);
 
-    if (video != null) {
-      setState(() {
-        _videoName = File(video.path).uri.pathSegments.last;
-      });
+      if (video != null) {
+        setState(() {
+          _videoName = File(video.path).uri.pathSegments.last;
+        });
+      }
+    } else {
+      // Handle permission denied
+      print("Permission denied");
     }
   }
 
   Future<void> _pickImage() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    final status = await Permission.storage.request();
+    if (status.isGranted) {
+      final ImagePicker _picker = ImagePicker();
+      final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
 
-    if (image != null) {
-      setState(() {
-        _imageName = File(image.path).uri.pathSegments.last;
-      });
+      if (image != null) {
+        setState(() {
+          _imageName = File(image.path).uri.pathSegments.last;
+        });
+      }
+    } else {
+      // Handle permission denied
+      print("Permission denied");
     }
   }
 
@@ -139,7 +153,7 @@ class _UploadingState extends State<Uploading> {
                 width: 180,
                 child: TextField(
                   decoration: InputDecoration(
-                      labelText: 'Write details of your plants'),
+                      hintText: 'Write details about your plants'),
                 ),
               )),
           Positioned(
@@ -189,7 +203,7 @@ class _UploadingState extends State<Uploading> {
                       backgroundColor: MaterialStatePropertyAll<Color>(
                           Color.fromARGB(211, 193, 219, 169))),
                   onPressed: () {
-                    _pickAudio();
+                    _pickVideo();
                   },
                   child: _videoName == null
                       ? Image.asset(

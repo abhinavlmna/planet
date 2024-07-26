@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantnet2/feedpage.dart';
 import 'package:plantnet2/plantimgpg.dart';
 import 'package:plantnet2/screensize.dart';
 
@@ -73,6 +74,8 @@ class _WishlistState extends State<Wishlist> {
         wishcount: '1000',
         place: 'Outdoor'),
   ];
+
+  int _selectedIndex = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -253,15 +256,16 @@ class _WishlistState extends State<Wishlist> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: InkWell(
-              child: Image.asset(
-                'assets/images/img_45.png',
-                height: 25.v,
-                width: 25.h,
-                fit: BoxFit.fill,
+              child: Icon(
+                Icons.grass,
+                color: _selectedIndex == 0 ? Colors.green : Colors.black,
               ),
               onTap: () {
+                setState(() {
+                  _selectedIndex = 0;
+                });
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Plantimage()));
+                    MaterialPageRoute(builder: (context) => Feedpage()));
               },
             ),
             label: 'leaf',
@@ -270,9 +274,12 @@ class _WishlistState extends State<Wishlist> {
               icon: InkWell(
                 child: Icon(
                   Icons.favorite_border,
-                  color: Colors.black,
+                  color: _selectedIndex == 1 ? Colors.green : Colors.black,
                 ),
                 onTap: () {
+                  setState(() {
+                    _selectedIndex = 1;
+                  });
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Wishlist()));
                 },
@@ -282,9 +289,12 @@ class _WishlistState extends State<Wishlist> {
               icon: InkWell(
                 child: Icon(
                   Icons.shopping_cart_outlined,
-                  color: Colors.black,
+                  color: _selectedIndex == 2 ? Colors.green : Colors.black,
                 ),
                 onTap: () {
+                  setState(() {
+                    _selectedIndex = 2;
+                  });
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Cartpage()));
                 },
@@ -299,6 +309,9 @@ class _WishlistState extends State<Wishlist> {
                 fit: BoxFit.fill,
               ),
               onTap: () {
+                setState(() {
+                  _selectedIndex = 3;
+                });
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Chatpage()));
               },
@@ -306,6 +319,13 @@ class _WishlistState extends State<Wishlist> {
             label: 'message',
           ),
         ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.green,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
         backgroundColor: Colors.grey,
       ),
     );

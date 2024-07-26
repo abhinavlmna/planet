@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantnet2/feedpage.dart';
 import 'package:plantnet2/plantimgpg.dart';
 import 'package:plantnet2/screensize.dart';
 import 'package:plantnet2/wishlistpg.dart';
@@ -83,6 +84,39 @@ class _CartpageState extends State<Cartpage> {
         quantity: '3',
         place: 'Indoor'),
   ];
+
+  int _selectedIndex = 2; // Initialize with the index of 'cart' icon
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (_selectedIndex) {
+      case 0:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Feedpage()),
+        );
+        break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Wishlist()),
+        );
+        break;
+      case 2:
+        // Current page, do nothing or handle tap logic
+        break;
+      case 3:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Chatpage()),
+        );
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,7 +171,7 @@ class _CartpageState extends State<Cartpage> {
                                   )),
                               Positioned(
                                   top: 10.v,
-                                  left: 210.h,
+                                  left: 180.h,
                                   child: Text(
                                     '${C.name}',
                                     style: TextStyle(
@@ -147,7 +181,7 @@ class _CartpageState extends State<Cartpage> {
                                   )),
                               Positioned(
                                   top: 40.v,
-                                  left: 230.h,
+                                  left: 180.h,
                                   child: Text(
                                     '${C.price}',
                                     style: TextStyle(
@@ -157,7 +191,7 @@ class _CartpageState extends State<Cartpage> {
                                   )),
                               Positioned(
                                   top: 70.v,
-                                  left: 210.h,
+                                  left: 180.h,
                                   child: Image.asset(
                                     'assets/images/img_51nw.png',
                                     height: 26.v,
@@ -166,7 +200,7 @@ class _CartpageState extends State<Cartpage> {
                                   )),
                               Positioned(
                                   top: 70.v,
-                                  left: 240.h,
+                                  left: 210.h,
                                   child: Text(
                                     '${C.place}',
                                     style: TextStyle(
@@ -238,15 +272,12 @@ class _CartpageState extends State<Cartpage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: InkWell(
-              child: Image.asset(
-                'assets/images/img_45.png',
-                height: 25.v,
-                width: 25.h,
-                fit: BoxFit.fill,
+              child: Icon(
+                Icons.grass,
+                color: _selectedIndex == 0 ? Colors.green : Colors.black,
               ),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Plantimage()));
+                _onItemTapped(0);
               },
             ),
             label: 'leaf',
@@ -255,11 +286,10 @@ class _CartpageState extends State<Cartpage> {
               icon: InkWell(
                 child: Icon(
                   Icons.favorite_border,
-                  color: Colors.black,
+                  color: _selectedIndex == 1 ? Colors.green : Colors.black,
                 ),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Wishlist()));
+                  _onItemTapped(1);
                 },
               ),
               label: 'like'),
@@ -267,11 +297,10 @@ class _CartpageState extends State<Cartpage> {
               icon: InkWell(
                 child: Icon(
                   Icons.shopping_cart_outlined,
-                  color: Colors.black,
+                  color: _selectedIndex == 2 ? Colors.green : Colors.black,
                 ),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Cartpage()));
+                  _onItemTapped(2);
                 },
               ),
               label: 'cart'),
@@ -282,10 +311,10 @@ class _CartpageState extends State<Cartpage> {
                 height: 21.v,
                 width: 21.h,
                 fit: BoxFit.fill,
+                color: _selectedIndex == 3 ? Colors.green : Colors.black,
               ),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Chatpage()));
+                _onItemTapped(3);
               },
             ),
             label: 'message',

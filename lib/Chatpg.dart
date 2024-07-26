@@ -9,7 +9,7 @@ class Chatpage extends StatefulWidget {
 }
 
 class _ChatpageState extends State<Chatpage> {
-  TextEditingController _message =TextEditingController();
+  TextEditingController _message = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +42,7 @@ class _ChatpageState extends State<Chatpage> {
         ],
       ),
       body: ListView(
-        children:  [
+        children: [
           ChatBubble(
             text: 'How was the concert?',
             isCurrentUser: false,
@@ -64,17 +64,16 @@ class _ChatpageState extends State<Chatpage> {
             isCurrentUser: false,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 10.h,right: 10.h,bottom: 10.v,top: 380.v),
+            padding: EdgeInsets.only(
+                left: 10.h, right: 10.h, bottom: 10.v, top: 380.v),
             child: TextField(
-
               decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(30))),
                   prefixIcon: Icon(Icons.mood),
                   suffixIcon: Icon(Icons.attach_file),
                   suffix: Icon(Icons.camera_alt_outlined),
-              labelText: 'Message'
-              ),
+                  labelText: 'Message'),
             ),
           )
         ],
@@ -117,7 +116,7 @@ class ChatBubble extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: Text(
               text,
-              style: Theme.of(context).textTheme.bodyText1!.copyWith(
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   color: isCurrentUser ? Colors.white : Colors.black87),
             ),
           ),

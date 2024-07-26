@@ -37,7 +37,8 @@ dependencies:
   easy_splash_screen:
   image_picker: ^0.8.4+4
   file_picker: ^5.0.1
-
+  permission_handler: ^10.2.0
+  http: ^1.2.2
 
 
 
